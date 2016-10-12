@@ -3,7 +3,7 @@ using DotNetCoreKoans.Engine;
 using System.Collections.Generic;
 using System;
 using System.Collections;
-using System.Reflection;
+
 
 namespace DotNetCoreKoans.Koans
 {
@@ -21,14 +21,8 @@ namespace DotNetCoreKoans.Koans
 			list.Add(42);
 			Assert.Equal(FILL_ME_IN, list.Count);
 		}
+	
 		[Step(2)]
-		public void ArrayListHoldsObjects()
-		{
-			ArrayList list = new ArrayList();
-			System.Reflection.MethodInfo method = list.GetType().GetMethod("Add");
-			Assert.Equal(typeof(FillMeIn), method.GetParameters()[0].ParameterType);
-		}
-		[Step(3)]
 		public void MustCastWhenRetrieving()
 		{
 			//There are a few problems with ArrayList holding object references. The first 
@@ -39,7 +33,7 @@ namespace DotNetCoreKoans.Koans
 			//x = (int)list[0];
 			Assert.Equal(x, 42);
 		}
-		[Step(4)]
+		[Step(3)]
 		public void ArrayListIsNotStronglyTyped()
 		{
 			//Having to cast everywhere is tedious. But there is also another issue lurking
@@ -54,7 +48,7 @@ namespace DotNetCoreKoans.Koans
 			//anytime your code works with an array list you have to check that the element is 
 			//of the type you expect.
 		}
-		[Step(5)]
+		[Step(4)]
 		public void Boxing()
 		{
 			short s = 5;
@@ -71,7 +65,7 @@ namespace DotNetCoreKoans.Koans
 			//ArrayList it must be boxed. Every time you read it from the ArrayList it must be unboxed. This can be a significat
 			//cost.
 		}
-		[Step(6)]
+		[Step(5)]
 		public void ABetterDynamicSizeContainer()
 		{
 			//ArrayList is a .Net 1.0 container. With .Net 2.0 generics were introduced and with it a new set of collections in
