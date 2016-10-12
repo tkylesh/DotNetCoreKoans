@@ -35,28 +35,18 @@ namespace DotNetCoreKoans.Engine
 
         public StepResult Try(Action throwable)
         {
-           
-           
-           
+
             try
             {
                 throwable();          
             }
-          
-
+         
             catch (TargetInvocationException e)
             {
-                  if(e.InnerException is System.Exception)
-                  {
-
-                         Console.WriteLine($"Sensei say run time error: Description:  {e.InnerException}");
-                       return new AssertionFailedStepResult{ Step= this, Exception = e.InnerException };
-                  }
-
+               
                 if (e.InnerException is XunitException)
                 {
-                   
-               
+
                     return new AssertionFailedStepResult{ Step= this, Exception = e.InnerException };
 
                 }
@@ -107,7 +97,7 @@ public abstract class StepResult
         }
     }
 
- public class FailedStepResult : StepResult
+     public class FailedStepResult : StepResult
     {
 
     }
