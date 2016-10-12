@@ -64,6 +64,8 @@ namespace DotNetCoreKoans.Koans
         }
 
         [Step(4)]
+
+
         public void SlicingArrays()
         {
             var array = new[] { "peanut", "butter", "and", "jelly" };
